@@ -11,7 +11,7 @@ export const useMutateTask = () => {
 
   const createTaskMutation = useMutation(
     (task: Omit<EditTask, 'id'>) =>
-      axios.post<Task>(`${process.env.REACT_APP_REST_API}/api/tasks/`, task),
+      axios.post<Task>(`${process.env.REACT_APP_REST_URL}/api/tasks/`, task),
     {
       // onSuccessはaxiosの通信が成功したときに実行されるコールバック
       onSuccess: (response) => {
@@ -34,7 +34,7 @@ export const useMutateTask = () => {
   const updateTaskMutation = useMutation(
     (task: EditTask) =>
       axios.put<Task>(
-        `${process.env.REACT_APP_REST_API}/api/tasks/${task.id}/`,
+        `${process.env.REACT_APP_REST_URL}/api/tasks/${task.id}/`,
         task
       ),
     {
@@ -57,7 +57,7 @@ export const useMutateTask = () => {
 
   const deleteTaskMutation = useMutation(
     (id: number) =>
-      axios.delete(`/${process.env.REACT_APP_REST_API}/api/tasks/${id}/}/`),
+      axios.delete(`${process.env.REACT_APP_REST_URL}/api/tasks/${id}/`),
     {
       onSuccess: (response, variables) => {
         const previousTasks = queryClient.getQueryData<Task[]>('tasks');

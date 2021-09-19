@@ -51,7 +51,7 @@ export const useMutateTag = () => {
 
   const deleteTagMutation = useMutation(
     (id: number) =>
-      axios.delete<Tag>(`${process.env.REACT_APP_REST_API}/api/tags/${id}/`),
+      axios.delete<Tag>(`${process.env.REACT_APP_REST_URL}/api/tags/${id}/`),
     {
       onSuccess: (_, variables) => {
         const previousTags = queryClient.getQueryData<Tag[]>('tags');
