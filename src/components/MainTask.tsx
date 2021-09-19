@@ -3,6 +3,7 @@ import { useHistory } from 'react-router';
 import { ChevronDoubleRightIcon } from '@heroicons/react/solid';
 
 import TaskList from './TaskList';
+import TaskEdit from './TaskEdit';
 
 interface MainTaskProps {}
 
@@ -27,6 +28,7 @@ const MainTask: VFC<MainTaskProps> = () => {
 
       <div className="grid grid-cols-2 gap-40">
         <TaskList />
+        <TaskEdit />
       </div>
 
       <ChevronDoubleRightIcon
